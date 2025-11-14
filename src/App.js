@@ -5,7 +5,8 @@ import { Map as MapGL } from 'react-map-gl';
 import { parseCSV, convertToGeoJSON } from './utils/csvParser';
 import { generateColorPalette, getICIOColor } from './utils/iconLayer';
 import { jenksBreaks } from './utils/naturalBreaks';
-import { MAPBOX_ACCESS_TOKEN } from './config';
+// Use environment variable for Mapbox token (set in Vercel/GitHub Actions)
+const MAPBOX_ACCESS_TOKEN = process.env.REACT_APP_MAPBOX_TOKEN || process.env.REACT_APP_MAPBOX_ACCESS_TOKEN || '';
 import ErrorBoundary from './ErrorBoundary';
 import ICIOCalculator from './components/ICIOCalculator';
 import './App.css';
