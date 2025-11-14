@@ -10,7 +10,17 @@ import ICIOCalculator from './components/ICIOCalculator';
 import './App.css';
 
 // Use environment variable for Mapbox token (set in Vercel/GitHub Actions)
-const MAPBOX_ACCESS_TOKEN = process.env.REACT_APP_MAPBOX_TOKEN || process.env.REACT_APP_MAPBOX_ACCESS_TOKEN || '';
+// Fallback to config.js for local development if env var is not set
+let MAPBOX_ACCESS_TOKEN = process.env.REACT_APP_MAPBOX_TOKEN || process.env.REACT_APP_MAPBOX_ACCESS_TOKEN || '';
+if (!MAPBOX_ACCESS_TOKEN) {
+  try {
+    // Try to import from config.js for local development
+    const config = require('./config');
+    MAPBOX_ACCESS_TOKEN = config.MAPBOX_ACCESS_TOKEN || '';
+  } catch (e) {
+    // config.js doesn't exist, will use empty string
+  }
+}
 
 const INITIAL_VIEW_STATE = {
   longitude: -3.7,
