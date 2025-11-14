@@ -24,9 +24,16 @@ npm install
 ```
 
 2. Set your Mapbox access token:
+   
+   **For local development:**
    - Create a `.env` file in the root directory
-   - Add: `REACT_APP_MAPBOX_ACCESS_TOKEN=your_token_here`
-   - Or modify the `MAPBOX_ACCESS_TOKEN` constant in `src/App.js`
+   - Add: `REACT_APP_MAPBOX_TOKEN=your_token_here`
+   - Or `REACT_APP_MAPBOX_ACCESS_TOKEN=your_token_here`
+   
+   **For Vercel deployment:**
+   - Go to your Vercel project → Settings → Environment Variables
+   - Add: `REACT_APP_MAPBOX_TOKEN` with your Mapbox token value
+   - Set for Production, Preview, and Development environments
 
 ## Usage
 
