@@ -70,36 +70,6 @@ Example:
 - xlsx (for parsing Excel files)
 - d3-scale (for color scaling)
 
-## Deployment
-
-### GitHub Pages
-
-The project is configured for automatic deployment to GitHub Pages using GitHub Actions.
-
-**To enable GitHub Pages:**
-
-1. Go to your repository settings on GitHub
-2. Navigate to **Pages** in the left sidebar
-3. Under **Source**, select **GitHub Actions**
-4. The workflow will automatically deploy on every push to `main` branch
-
-**Manual deployment:**
-
-You can also deploy manually using:
-```bash
-npm run deploy
-```
-
-**Important:** Make sure to set the `REACT_APP_MAPBOX_TOKEN` secret in your GitHub repository:
-1. Go to **Settings** → **Secrets and variables** → **Actions**
-2. Click **New repository secret**
-3. Name: `REACT_APP_MAPBOX_TOKEN`
-4. Value: Your Mapbox access token
-
-The deployed site will be available at: `https://RomanDataLab.github.io/ICIO_tax`
-
-**Note:** After enabling GitHub Pages and setting up the secret, the first deployment may take a few minutes. You can check the deployment status in the Actions tab.
-
 ## License
 
 MIT
