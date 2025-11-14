@@ -1,0 +1,175 @@
+.icio-calculator-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 999;
+  background: transparent;
+}
+
+.icio-calculator-dashboard {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  min-width: 245px;
+  max-width: 280px;
+  max-height: 90vh;
+  overflow-y: auto;
+  user-select: none;
+}
+
+.icio-calculator-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  border-bottom: 1px solid #dee2e6;
+  background: #f8f9fa;
+  border-radius: 8px 8px 0 0;
+  cursor: grab;
+}
+
+.icio-calculator-header:active {
+  cursor: grabbing;
+}
+
+.icio-calculator-header h3 {
+  margin: 0;
+  font-size: 18px;
+  color: #333;
+}
+
+.icio-calculator-close {
+  background: none;
+  border: none;
+  font-size: 18px;
+  color: #666;
+  cursor: pointer;
+  padding: 0;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  transition: background-color 0.2s, color 0.2s;
+  font-weight: bold;
+  line-height: 1;
+}
+
+.icio-calculator-close:hover {
+  background-color: #e9ecef;
+  color: #000;
+}
+
+.icio-calculator-close:active {
+  background-color: #dee2e6;
+}
+
+.icio-calculator-content {
+  padding: 20px;
+}
+
+.icio-calculator-city-info {
+  margin-bottom: 12px;
+  padding: 8px;
+  background: #f8f9fa;
+  border-radius: 4px;
+  font-size: 14px;
+  color: #495057;
+}
+
+.icio-calculator-field {
+  margin-bottom: 8px;
+}
+
+.icio-calculator-field label {
+  display: block;
+  margin-bottom: 3px;
+  font-weight: 500;
+  color: #333;
+  font-size: 14px;
+}
+
+.icio-calculator-field select,
+.icio-calculator-field input {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+.icio-calculator-field select:focus,
+.icio-calculator-field input:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
+.icio-calculator-result {
+  margin: 8px 0;
+  padding: 12px;
+  background: #e7f3ff;
+  border-radius: 4px;
+  border: 1px solid #b3d9ff;
+}
+
+.icio-calculator-result label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #333;
+  font-size: 14px;
+}
+
+.icio-calculator-result-value {
+  font-size: 24px;
+  font-weight: bold;
+  color: #007bff;
+}
+
+.icio-calculator-button {
+  width: 100%;
+  padding: 12px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  margin-top: 8px;
+}
+
+.icio-calculator-button:hover:not(:disabled) {
+  background-color: #0056b3;
+}
+
+.icio-calculator-button:disabled {
+  background-color: #6c757d;
+  cursor: not-allowed;
+}
+
+/* Scrollbar styling */
+.icio-calculator-dashboard::-webkit-scrollbar {
+  width: 6px;
+}
+
+.icio-calculator-dashboard::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 3px;
+}
+
+.icio-calculator-dashboard::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 3px;
+}
+
+.icio-calculator-dashboard::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+

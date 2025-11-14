@@ -1,0 +1,21 @@
+type,subtype,PEM_range_start_(€/m²),PEM_range_finish_(€/m²),CTE_reference,active_link
+Residential,Single-family_house,700,1200,"DB-SI, DB-HE, DB-HR",https://www.codigotecnico.org/index.php/menu-vivienda.html
+Residential,Multi-family_building,800,1500,"DB-SI, DB-HE, DB-HR",https://www.codigotecnico.org/index.php/menu-vivienda.html
+Residential,"Collective_residence_(students,_elderly)",900,1600,"DB-SI, DB-HE, DB-HR",https://www.codigotecnico.org/index.php/menu-vivienda.html
+Educational,School_or_kindergarten,800,1300,"DB-SI, DB-HE, DB-HR",https://www.codigotecnico.org/index.php/menu-docente.html
+Educational,High_school_or_training_center,900,1400,"DB-SI, DB-HE, DB-HR",https://www.codigotecnico.org/index.php/menu-docente.html
+Health,Clinic_or_health_center,1200,1800,"DB-SI, DB-HS, DB-HE",https://www.codigotecnico.org/index.php/menu-sanitario.html
+Health,Hospital,1500,2500,"DB-SI, DB-HS, DB-HE",https://www.codigotecnico.org/index.php/menu-sanitario.html
+Hospitality,Hotel,900,2000,"DB-SI, DB-HR, DB-HE",https://www.codigotecnico.org/index.php/menu-residencial-publico.html
+Hospitality,Hostel_or_tourist_apartment,800,1600,"DB-SI, DB-HR, DB-HE",https://www.codigotecnico.org/index.php/menu-residencial-publico.html
+Administrative,Office_building,800,1600,"DB-SI, DB-HE, DB-HR",https://www.codigotecnico.org/index.php/menu-administrativo.html
+Commercial,Retail_shop,700,1300,"DB-SI, DB-HS, DB-HE",https://www.codigotecnico.org/index.php/menu-comercial.html
+Commercial,Shopping_center,900,1500,"DB-SI, DB-HS, DB-HE",https://www.codigotecnico.org/index.php/menu-comercial.html
+Industrial,Factory_or_workshop,500,1000,"DB-SI, DB-HS",https://www.codigotecnico.org/index.php/menu-industrial.html
+Industrial,Logistics_warehouse,600,1200,"DB-SI, DB-HS",https://www.codigotecnico.org/index.php/menu-industrial.html
+Public_Assembly,Theatre_or_auditorium,1200,2500,"DB-SI, DB-HR, DB-HE",https://www.codigotecnico.org/index.php/menu-publica-concurrencia.html
+Public_Assembly,Sports_center_or_gym,1000,1800,"DB-SI, DB-HE",https://www.codigotecnico.org/index.php/menu-publica-concurrencia.html
+Parking,Underground_parking,500,800,"DB-SI, DB-HS",https://www.codigotecnico.org/index.php/menu-aparcamiento.html
+Institutional,Town_hall_or_court,900,1800,"DB-SI, DB-HR",https://www.codigotecnico.org/index.php/menu-institucional.html
+Institutional,Museum_or_library,1000,2000,"DB-SI, DB-HR",https://www.codigotecnico.org/index.php/menu-institucional.html
+Infrastructural,Technical_building_or_station,600,1400,"DB-SI, DB-HS",https://www.codigotecnico.org/index.php/menu-industrial.html
