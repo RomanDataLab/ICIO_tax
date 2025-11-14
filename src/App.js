@@ -34,6 +34,7 @@ function App() {
   const [hoveredObject, setHoveredObject] = useState(null);
   const [cursor, setCursor] = useState('default');
   const [clickedIndex, setClickedIndex] = useState(null);
+  const [isMinimized, setIsMinimized] = useState(false);
 
   const loadCSVData = useCallback(async () => {
     setLoading(true);
@@ -80,6 +81,13 @@ function App() {
     if (!gl) {
       setWebglError('WebGL is not supported in your browser. Please use a modern browser with WebGL support.');
     }
+  }, []);
+
+  // Detect mobile browser and minimize by default
+  useEffect(() => {
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || 
+                     (window.innerWidth <= 768);
+    setIsMinimized(isMobile);
   }, []);
 
   // Load CSV file on mount
@@ -378,7 +386,15 @@ function App() {
     <ErrorBoundary>
       <div className="App">
         <div className="controls">
-          <div className="control-panel">
+          <div className={`control-panel ${isMinimized ? 'minimized' : ''}`}>
+            <button 
+              className="minimize-button"
+              onClick={() => setIsMinimized(!isMinimized)}
+              aria-label={isMinimized ? "Expand dashboard" : "Minimize dashboard"}
+              title={isMinimized ? "Expand dashboard" : "Minimize dashboard"}
+            >
+              {isMinimized ? '☰' : '−'}
+            </button>
             <h2>Tax for Construction, Installations and Renovation (Impuesto sobre construcciones, instalaciones y obras - ICIO)</h2>
             <a 
               href="https://agenciatributaria.madrid.es/portales/contribuyente/es/Tramites/Impuesto-sobre-Construcciones-Instalaciones-y-Obras-ICIO-Autoliquidacion/?vgnextfmt=default&vgnextoid=35d36cab45973510VgnVCM1000001d4a900aRCRD&vgnextchannel=97d608f9be116810VgnVCM1000001d4a900aRCRD"
