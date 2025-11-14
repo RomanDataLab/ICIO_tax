@@ -91,6 +91,8 @@ npm run deploy
 
 The deployed site will be available at: `https://RomanDataLab.github.io/ICIO_tax`
 
+**Note:** After enabling GitHub Pages and setting up the secret, the first deployment may take a few minutes. You can check the deployment status in the Actions tab.
+
 ## License
 
 MIT
