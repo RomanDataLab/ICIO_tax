@@ -34,3 +34,6 @@ Thumbs.db
 # Config files with sensitive tokens
 src/config.js
 
+# Merged data files
+ICIO_merged.csv
+
