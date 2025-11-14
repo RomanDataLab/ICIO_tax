@@ -389,7 +389,29 @@ function App() {
               More information
             </a>
             {loading && <div className="info">Loading data...</div>}
-            {error && <div className="error">{error}</div>}
+            {error && (
+              <div className="error" style={{ 
+                background: '#ff4444', 
+                color: 'white', 
+                padding: '10px', 
+                borderRadius: '4px',
+                marginBottom: '10px'
+              }}>
+                {error}
+              </div>
+            )}
+            {!MAPBOX_ACCESS_TOKEN && (
+              <div style={{ 
+                background: '#ff8800', 
+                color: 'white', 
+                padding: '10px', 
+                borderRadius: '4px',
+                marginBottom: '10px',
+                fontSize: '12px'
+              }}>
+                ⚠️ Mapbox token missing. Set REACT_APP_MAPBOX_TOKEN in Vercel environment variables.
+              </div>
+            )}
             {geoJsonData && (
               <div className="info">
                 <p><strong>Total:</strong> {geoJsonData.features.length} cities</p>
