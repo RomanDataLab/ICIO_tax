@@ -122,14 +122,13 @@ function App() {
   const handleIconClick = useCallback((info) => {
     if (info.object && info.object.properties) {
       const props = info.object.properties;
-      // Position calculator on the right side, stuck to the right edge, vertically centered
-      const calculatorWidth = 245; // Estimated width (30% less than 350)
-      const x = window.innerWidth - calculatorWidth;
-      const y = window.innerHeight / 2;
       setSelectedCityData({
         city: props.city,
         icio: props.icio
       });
+      const calculatorWidth = 245;
+      const x = window.innerWidth - calculatorWidth;
+      const y = window.innerHeight / 2;
       setCalculatorPosition({ x: Math.max(0, x), y });
       setCalculatorOpen(true);
     }
@@ -336,8 +335,7 @@ function App() {
             // Also open calculator
             if (info.object.properties) {
               const props = info.object.properties;
-              // Position calculator on the right side, stuck to the right edge, vertically centered
-              const calculatorWidth = 245; // Estimated width (30% less than 350)
+              const calculatorWidth = 245;
               const x = window.innerWidth - calculatorWidth;
               const y = window.innerHeight / 2;
               setSelectedCityData({

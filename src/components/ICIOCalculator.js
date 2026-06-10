@@ -135,13 +135,15 @@ function ICIOCalculator({ isOpen, position, cityData, onClose }) {
     }
   }, [isOpen]);
 
-  // Drag handlers
+  const isMobile = typeof window !== 'undefined' && window.innerWidth <= 768;
+
+  // Drag handlers (desktop only)
   const handleMouseDown = (e) => {
-    // Don't start dragging if clicking the close button or other interactive elements
+    if (isMobile) return;
     if (e.target.closest('.icio-calculator-close') || e.target.closest('button')) {
       return;
     }
-    
+
     if (e.target.closest('.icio-calculator-header')) {
       setIsDragging(true);
       const rect = dashboardRef.current.getBoundingClientRect();
@@ -154,6 +156,8 @@ function ICIOCalculator({ isOpen, position, cityData, onClose }) {
   };
 
   useEffect(() => {
+    if (isMobile) return;
+
     const handleMouseMove = (e) => {
       if (isDragging) {
         const newX = e.clientX - dragOffset.x;
@@ -174,7 +178,7 @@ function ICIOCalculator({ isOpen, position, cityData, onClose }) {
         document.removeEventListener('mouseup', handleMouseUp);
       };
     }
-  }, [isDragging, dragOffset]);
+  }, [isDragging, dragOffset, isMobile]);
 
   const calculateICIO = () => {
     if (!buildingFunction || !cityData) {
@@ -250,7 +254,9 @@ function ICIOCalculator({ isOpen, position, cityData, onClose }) {
 
   if (!isOpen) return null;
 
-  const style = {
+  const style = isMobile ? {
+    zIndex: 1000
+  } : {
     position: 'fixed',
     left: `${dashboardPosition.x}px`,
     top: `${dashboardPosition.y}px`,

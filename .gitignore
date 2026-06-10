@@ -37,3 +37,6 @@ src/config.js
 # Merged data files
 ICIO_merged.csv
 
+# Project documentation (local only)
+graph.md
+
