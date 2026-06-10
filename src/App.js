@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useMemo, useEffect, useRef } from 'react';
+import React, { useState, useCallback, useMemo, useEffect } from 'react';
 import DeckGL from '@deck.gl/react';
 import { IconLayer } from '@deck.gl/layers';
 import { Map as MapGL } from 'react-map-gl';
@@ -30,7 +30,7 @@ function App() {
   const [calculatorOpen, setCalculatorOpen] = useState(false);
   const [calculatorPosition, setCalculatorPosition] = useState(null);
   const [selectedCityData, setSelectedCityData] = useState(null);
-  const [mapInstance, setMapInstance] = useState(null);
+  const [, setMapInstance] = useState(null);
   const [hoveredObject, setHoveredObject] = useState(null);
   const [cursor, setCursor] = useState('default');
   const [clickedIndex, setClickedIndex] = useState(null);
@@ -118,22 +118,6 @@ function App() {
     return generateColorPalette(numClasses);
   }, [naturalBreaks]);
 
-  // Handle icon click
-  const handleIconClick = useCallback((info) => {
-    if (info.object && info.object.properties) {
-      const props = info.object.properties;
-      setSelectedCityData({
-        city: props.city,
-        icio: props.icio
-      });
-      const calculatorWidth = 245;
-      const x = window.innerWidth - calculatorWidth;
-      const y = window.innerHeight / 2;
-      setCalculatorPosition({ x: Math.max(0, x), y });
-      setCalculatorOpen(true);
-    }
-  }, []);
-
   // Handle map load to get map instance
   const handleMapLoad = useCallback((event) => {
     // In react-map-gl v7, event.target is the mapboxgl.Map instance
@@ -146,62 +130,6 @@ function App() {
     
     return colorPalette.map(color => `rgb(${color[0]}, ${color[1]}, ${color[2]})`);
   }, [naturalBreaks, colorPalette]);
-
-  // Create custom pin icon - circle with line extending down
-  const createCustomPinIcon = useCallback(() => {
-    const canvas = document.createElement('canvas');
-    canvas.width = 40; // Single icon
-    canvas.height = 40; // Height to accommodate circle + line
-    const ctx = canvas.getContext('2d');
-    
-    const centerX = 20; // Center of canvas
-    const circleY = 10; // Top of circle (10px from top)
-    const circleRadius = 10; // 20px diameter / 2
-    const lineHeight = 15; // Height of line
-    const lineStartY = circleY + circleRadius; // Start line from bottom of circle
-    const lineEndY = lineStartY + lineHeight;
-    
-    // Draw shadow first (offset slightly down and right)
-    ctx.save();
-    ctx.shadowColor = 'rgba(0, 0, 0, 0.3)';
-    ctx.shadowBlur = 4;
-    ctx.shadowOffsetX = 2;
-    ctx.shadowOffsetY = 2;
-    
-    // Draw circle shadow
-    ctx.beginPath();
-    ctx.arc(centerX, circleY, circleRadius, 0, Math.PI * 2);
-    ctx.fillStyle = 'rgba(0, 0, 0, 0.2)';
-    ctx.fill();
-    
-    // Draw line shadow
-    ctx.beginPath();
-    ctx.moveTo(centerX, lineStartY);
-    ctx.lineTo(centerX, lineEndY);
-    ctx.strokeStyle = 'rgba(0, 0, 0, 0.2)';
-    ctx.lineWidth = 2;
-    ctx.stroke();
-    
-    ctx.restore();
-    
-    // Draw white line (2px thick, 15px height)
-    ctx.beginPath();
-    ctx.moveTo(centerX, lineStartY);
-    ctx.lineTo(centerX, lineEndY);
-    ctx.strokeStyle = '#FFFFFF';
-    ctx.lineWidth = 2;
-    ctx.stroke();
-    
-    // Draw circle with white outline (0.5px) - will be filled with color later
-    ctx.beginPath();
-    ctx.arc(centerX, circleY, circleRadius, 0, Math.PI * 2);
-    ctx.strokeStyle = '#FFFFFF';
-    ctx.lineWidth = 0.5;
-    ctx.stroke();
-    // Fill will be done per-icon with palette color
-    
-    return canvas;
-  }, []);
 
   // Create custom pin icons dynamically for each city
   const createCustomPinIcons = useCallback(() => {
